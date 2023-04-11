@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BlocoNotas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_adicionar_nota">Adicionar nota</string>
+    <string name="btn_salvar_nota">Salvar</string>
+    <string name="btn_voltar">Voltar</string>
+    <string name="placeholder_nome_nota">Nome da nota</string>
+    <string name="placeholder_nota_conteudo">Escreva aqui...</string>
 </resources>
