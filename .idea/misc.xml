@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Github/Projetos/BlocoNotas/app/src/main/res/layout/activity_main.xml" value="0.23324275362318841" />
         <entry key="..\:/Github/Projetos/BlocoNotas/app/src/main/res/layout/fragment_adicionar_nota.xml" value="0.25416666666666665" />
         <entry key="..\:/Github/Projetos/BlocoNotas/app/src/main/res/layout/fragment_lista_notas.xml" value="0.25416666666666665" />
       </map>
