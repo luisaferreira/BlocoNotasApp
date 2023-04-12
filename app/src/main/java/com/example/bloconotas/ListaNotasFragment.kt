@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
@@ -116,6 +117,14 @@ class ListaNotasFragment : Fragment(R.layout.fragment_lista_notas) {
         var nota = notaDao.GetById(idNota)
         notaDao.Delete(nota)
 
+        exibirToast("Nota excluída com sucesso")
+
         listarNotas()
+    }
+
+    fun exibirToast(mensagem: String)
+    {
+        val toast = Toast.makeText(requireContext(), mensagem, Toast.LENGTH_SHORT)
+        toast.show()
     }
 }
