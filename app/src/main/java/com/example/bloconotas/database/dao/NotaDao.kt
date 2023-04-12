@@ -18,5 +18,5 @@ interface NotaDao {
     fun Update(nota: Nota)
 
     @Delete
-    fun Delete(id: Int)
+    fun Delete(nota: Nota)
 }
