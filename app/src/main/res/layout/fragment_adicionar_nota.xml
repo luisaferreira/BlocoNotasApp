@@ -10,10 +10,12 @@
         android:id="@+id/nome_nota"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="@string/placeholder_nome_nota"
+        android:textStyle="bold"
+        android:background="@null"
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp" />
@@ -23,11 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
         android:ems="10"
+        android:hint="@string/placeholder_nota_conteudo"
         android:inputType="textMultiLine"
         android:minHeight="48dp"
-        android:hint="@string/placeholder_nota_conteudo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nome_nota" />
 
@@ -35,12 +38,12 @@
         android:id="@+id/btn_salvar_nota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
         android:layout_marginEnd="20dp"
-        android:contentDescription="@string/btn_salvar_nota"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
+        android:contentDescription="@string/btn_salvar_nota"
         android:src="?attr/actionModeCopyDrawable"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nota" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
