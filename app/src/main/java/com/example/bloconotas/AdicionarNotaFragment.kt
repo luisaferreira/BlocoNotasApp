@@ -43,7 +43,7 @@ class AdicionarNotaFragment : Fragment(R.layout.fragment_adicionar_nota) {
         }
 
         binding.btnSalvarNota.setOnClickListener {
-            notaId ?: salvarNota()
+            notaId?.let { atualizarNota(it) } ?: salvarNota()
         }
 
         notaId?.let {
@@ -63,5 +63,17 @@ class AdicionarNotaFragment : Fragment(R.layout.fragment_adicionar_nota) {
         notaDao.Insert(nota)
 
         navigation.navigate(R.id.action_adicionarNotaFragment_to_listaNotasFragment)
+    }
+
+    fun atualizarNota(idNota: Int)
+    {
+        val nomeNota = binding.nomeNota.text.toString()
+        val notaConteudo = binding.nota.text.toString()
+
+        var nota = Nota(idNota, nomeNota, notaConteudo)
+
+        notaDao.Update(nota)
+
+        navigation.navigateUp()
     }
 }
