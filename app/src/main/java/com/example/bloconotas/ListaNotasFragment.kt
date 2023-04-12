@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.example.bloconotas.database.AppDatabase
+import com.example.bloconotas.database.DatabaseSingleton
 import com.example.bloconotas.database.dao.NotaDao
 import com.example.bloconotas.databinding.FragmentListaNotasBinding
 
@@ -33,10 +34,8 @@ class ListaNotasFragment : Fragment(R.layout.fragment_lista_notas) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        this.db = Room.databaseBuilder(
-            requireContext().applicationContext,
-            AppDatabase::class.java, "item_database"
-        ).allowMainThreadQueries().build()
+        var dbSingleton = DatabaseSingleton.getInstance(requireContext())
+        this.db = dbSingleton.db as AppDatabase
 
         notaDao = this.db.notaDao()
 

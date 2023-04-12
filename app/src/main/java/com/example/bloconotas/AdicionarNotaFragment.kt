@@ -9,6 +9,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.room.Room
 import com.example.bloconotas.database.AppDatabase
+import com.example.bloconotas.database.DatabaseSingleton
 import com.example.bloconotas.database.dao.NotaDao
 import com.example.bloconotas.databinding.FragmentAdicionarNotaBinding
 import com.example.bloconotas.entities.Nota
@@ -24,13 +25,12 @@ class AdicionarNotaFragment : Fragment(R.layout.fragment_adicionar_nota) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        this.db = Room.databaseBuilder(
-            requireContext().applicationContext,
-            AppDatabase::class.java, "item_database"
-        ).allowMainThreadQueries().build()
+        var dbSingleton = DatabaseSingleton.getInstance(requireContext())
+        this.db = dbSingleton.db as AppDatabase
 
         notaDao = this.db.notaDao()
         navigation = findNavController()
+
 
         binding = FragmentAdicionarNotaBinding.inflate(inflater, container, false)
         return binding.root
