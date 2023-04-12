@@ -1,5 +1,6 @@
 package com.example.bloconotas
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -86,9 +87,28 @@ class ListaNotasFragment : Fragment(R.layout.fragment_lista_notas) {
             _, _, position, _ ->
                 var notaId = listaNotasId[position]
 
-                deletarNota(notaId)
+            abrirCaixaConfirmação(notaId)
                 true
         }
+    }
+
+    fun abrirCaixaConfirmação(idNota: Int)
+    {
+        var alertDialog = AlertDialog.Builder(requireContext())
+        alertDialog.setTitle("Confirmação de exclusão")
+            .setMessage("Você tem certeza que deseja excluir esta nota?")
+
+        alertDialog.setPositiveButton("Sim") { _, _ ->
+            // código para executar a ação
+            deletarNota(idNota)
+        }
+
+        alertDialog.setNegativeButton("Cancelar") { dialog, _ ->
+            // código para cancelar a ação
+            dialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 
     fun deletarNota(idNota: Int)
