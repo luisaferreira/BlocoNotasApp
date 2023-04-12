@@ -81,5 +81,21 @@ class ListaNotasFragment : Fragment(R.layout.fragment_lista_notas) {
             bundle.putInt("NOTA_ID", notaId)
             navigation.navigate(R.id.action_listaNotasFragment_to_adicionarNotaFragment, bundle)
         }
+
+        listView.onItemLongClickListener = AdapterView.OnItemLongClickListener() {
+            _, _, position, _ ->
+                var notaId = listaNotasId[position]
+
+                deletarNota(notaId)
+                true
+        }
+    }
+
+    fun deletarNota(idNota: Int)
+    {
+        var nota = notaDao.GetById(idNota)
+        notaDao.Delete(nota)
+
+        listarNotas()
     }
 }
